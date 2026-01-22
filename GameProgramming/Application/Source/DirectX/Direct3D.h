@@ -42,16 +42,16 @@ public:
 	//ComPtr<ID3D11PixelShader>	m_spritePS = nullptr;	// ピクセルシェーダー
 	//ComPtr<ID3D11InputLayout>	m_spriteInputLayout = nullptr;// 入力レイアウト
 
-	ComPtr<ID3D11Buffer>        m_vbSquare;             // 四角形用頂点バッファ
+	//ComPtr<ID3D11Buffer>        m_vbSquare;             // 四角形用頂点バッファ
 
-	// 2D描画モードにする
-	void ChangeMode_2D();
-	// tex		: テクスチャ
-	// x		: x座標
-	// y		: y座標
-	// w		: 幅
-	// h		: 高さ
-	void Draw2D(const Texture& tex, float x, float y, float w, float h);
+	//// 2D描画モードにする
+	//void ChangeMode_2D();
+	//// tex		: テクスチャ
+	//// x		: x座標
+	//// y		: y座標
+	//// w		: 幅
+	//// h		: 高さ
+	//void Draw2D(const Texture& tex, float x, float y, float w, float h);
 
 	//=========================================
 	// 今回このクラスは、どこからでもアクセスできるように

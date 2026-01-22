@@ -60,6 +60,9 @@
     <ClInclude Include="Source\DirectX\Shader.h">
       <Filter>Source\DirectX</Filter>
     </ClInclude>
+    <ClInclude Include="Source\DirectX\SpriteRenderer.h">
+      <Filter>Source\DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -78,6 +81,9 @@
       <Filter>Source\DirectX</Filter>
     </ClCompile>
     <ClCompile Include="Source\DirectX\Shader.cpp">
+      <Filter>Source\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectX\SpriteRenderer.cpp">
       <Filter>Source\DirectX</Filter>
     </ClCompile>
   </ItemGroup>

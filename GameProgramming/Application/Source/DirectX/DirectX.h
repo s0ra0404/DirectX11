@@ -23,3 +23,4 @@ using Microsoft::WRL::ComPtr;
 #include "Direct3D.h"
 #include "Texture.h"
 #include "Shader.h"
+#include "SpriteRenderer.h"

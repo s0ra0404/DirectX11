@@ -4,6 +4,8 @@
 // Direct3Dクラスを使えるようにする
 #include "Source/DirectX/DirectX.h"
 
+SpriteRenderer spriteRenderer;
+
 // ゲームの初期設定を行う
 void GameSystem::Initialize()
 {
@@ -17,10 +19,12 @@ void GameSystem::Execute()
     float color[4] = { 0.2f, 0.2f, 1.0f, 1.0f };
     D3D.m_deviceContext->ClearRenderTargetView(D3D.m_backBufferView.Get(), color);
 
-	// 三角形の描画
+	Direct3D d3d = D3D.GetInstance();
+
+		// 三角形の描画
 	{
-		D3D.ChangeMode_2D();
-		D3D.Draw2D(m_tex, 0, 0, 1, 1);
+		spriteRenderer.ChangeMode_2D(&d3d);
+		spriteRenderer.Draw(&d3d, m_tex, 0, 0, 1, 1);
 	}
 
 	// バックバッファの内容を画面に表示
