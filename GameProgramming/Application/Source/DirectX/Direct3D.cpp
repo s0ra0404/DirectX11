@@ -2,6 +2,8 @@
 #include "Direct3D.h"
 #include "DebugSystem.h"
 
+Shader shader;
+
 bool Direct3D::Initialize(HWND hWnd, int width, int height)
 {
 	//=====================================================
@@ -113,55 +115,60 @@ bool Direct3D::Initialize(HWND hWnd, int width, int height)
 	DEBUG.Log(L"テスト\n");
 	DEBUG.Log(L"テスト\n");
 
-	//=====================================================
-	// シェーダーの作成
-	//=====================================================
-	// 頂点シェーダーを読み込み＆コンパイル
-	ComPtr<ID3DBlob> compiledVS;
-	if (FAILED(D3DCompileFromFile(L"Shader/SpriteShader.hlsl", nullptr, nullptr, "VS", "vs_5_0", 0, 0, &compiledVS, nullptr)))
-	{
-		return false;
-	}
-	// ピクセルシェーダーを読み込み＆コンパイル
-	ComPtr<ID3DBlob> compiledPS;
-	if (FAILED(D3DCompileFromFile(L"Shader/SpriteShader.hlsl", nullptr, nullptr, "PS", "ps_5_0", 0, 0, &compiledPS, nullptr)))
-	{
-		return false;
-	}
 
-	// 頂点シェーダー作成
-	if (FAILED(m_device->CreateVertexShader(compiledVS->GetBufferPointer(), compiledVS->GetBufferSize(), nullptr, &m_spriteVS)))
-	{
-		return false;
-	}
-	// ピクセルシェーダー作成
-	if (FAILED(m_device->CreatePixelShader(compiledPS->GetBufferPointer(), compiledPS->GetBufferSize(), nullptr, &m_spritePS)))
-	{
-		return false;
-	}
+	shader.Load(m_device.Get(), L"Shader/SpriteShader.hlsl", "VS", "PS");
+	////=====================================================
+	//// シェーダーの作成
+	////=====================================================
+	//// 頂点シェーダーを読み込み＆コンパイル
+	//ComPtr<ID3DBlob> compiledVS;
+	//if (FAILED(D3DCompileFromFile(L"Shader/SpriteShader.hlsl", nullptr, nullptr, "VS", "vs_5_0", 0, 0, &compiledVS, nullptr)))
+	//{
+	//	return false;
+	//}
+	//// ピクセルシェーダーを読み込み＆コンパイル
+	//ComPtr<ID3DBlob> compiledPS;
+	//if (FAILED(D3DCompileFromFile(L"Shader/SpriteShader.hlsl", nullptr, nullptr, "PS", "ps_5_0", 0, 0, &compiledPS, nullptr)))
+	//{
+	//	return false;
+	//}
 
-	// １頂点の詳細な情報
-	std::vector<D3D11_INPUT_ELEMENT_DESC> layout = {
-		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,		0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "TEXCOORD",		0, DXGI_FORMAT_R32G32_FLOAT,		0,  12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-	};
+	//// 頂点シェーダー作成
+	//if (FAILED(m_device->CreateVertexShader(compiledVS->GetBufferPointer(), compiledVS->GetBufferSize(), nullptr, &m_spriteVS)))
+	//{
+	//	return false;
+	//}
+	//// ピクセルシェーダー作成
+	//if (FAILED(m_device->CreatePixelShader(compiledPS->GetBufferPointer(), compiledPS->GetBufferSize(), nullptr, &m_spritePS)))
+	//{
+	//	return false;
+	//}
 
-	// 頂点インプットレイアウト作成
-	if (FAILED(m_device->CreateInputLayout(&layout[0], layout.size(), compiledVS->GetBufferPointer(), compiledVS->GetBufferSize(), &m_spriteInputLayout)))
-	{
-		return false;
-	}
+	//// １頂点の詳細な情報
+	//std::vector<D3D11_INPUT_ELEMENT_DESC> layout = {
+	//	{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,		0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	//	{ "TEXCOORD",		0, DXGI_FORMAT_R32G32_FLOAT,		0,  12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	//};
+
+	//// 頂点インプットレイアウト作成
+	//if (FAILED(m_device->CreateInputLayout(&layout[0], layout.size(), compiledVS->GetBufferPointer(), compiledVS->GetBufferSize(), &m_spriteInputLayout)))
+	//{
+	//	return false;
+	//}
 	return true;
 }
 
 void Direct3D::ChangeMode_2D()
 {
-	// 2D用頂点シェーダーセット
-	m_deviceContext->VSSetShader(m_spriteVS.Get(), 0, 0);
-	// 2D用ピクセルシェーダーセット
-	m_deviceContext->PSSetShader(m_spritePS.Get(), 0, 0);
-	// 入力レイアウトセット
-	m_deviceContext->IASetInputLayout(m_spriteInputLayout.Get());
+
+	//// 2D用頂点シェーダーセット
+	//m_deviceContext->VSSetShader(m_spriteVS.Get(), 0, 0);
+	//// 2D用ピクセルシェーダーセット
+	//m_deviceContext->PSSetShader(m_spritePS.Get(), 0, 0);
+	//// 入力レイアウトセット
+	//m_deviceContext->IASetInputLayout(m_spriteInputLayout.Get());
+
+	shader.Bind(m_deviceContext.Get());
 
 	// 四角形用 頂点バッファ作成(初回のみ)
 	if (m_vbSquare == nullptr)

@@ -57,6 +57,9 @@
     <ClInclude Include="Source\DirectX\DebugSystem.h">
       <Filter>Source\DirectX</Filter>
     </ClInclude>
+    <ClInclude Include="Source\DirectX\Shader.h">
+      <Filter>Source\DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -72,6 +75,9 @@
       <Filter>Source\DirectX</Filter>
     </ClCompile>
     <ClCompile Include="Source\DirectX\DebugSystem.cpp">
+      <Filter>Source\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectX\Shader.cpp">
       <Filter>Source\DirectX</Filter>
     </ClCompile>
   </ItemGroup>

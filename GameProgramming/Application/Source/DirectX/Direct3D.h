@@ -1,6 +1,8 @@
 #pragma once
 
 #include "DirectX.h"
+#include "Shader.h"
+
 
 class Texture;
 
@@ -35,10 +37,10 @@ public:
 	//--------------------------------------------
 	bool Initialize(HWND hWnd, int width, int height);
 
-	// 2D描画用のシェーダー
-	ComPtr<ID3D11VertexShader>	m_spriteVS = nullptr;	// 頂点シェーダー
-	ComPtr<ID3D11PixelShader>	m_spritePS = nullptr;	// ピクセルシェーダー
-	ComPtr<ID3D11InputLayout>	m_spriteInputLayout = nullptr;// 入力レイアウト
+	//// 2D描画用のシェーダー
+	//ComPtr<ID3D11VertexShader>	m_spriteVS = nullptr;	// 頂点シェーダー
+	//ComPtr<ID3D11PixelShader>	m_spritePS = nullptr;	// ピクセルシェーダー
+	//ComPtr<ID3D11InputLayout>	m_spriteInputLayout = nullptr;// 入力レイアウト
 
 	ComPtr<ID3D11Buffer>        m_vbSquare;             // 四角形用頂点バッファ
 
