@@ -16,7 +16,6 @@ struct VertexType2D
 class Direct3D
 {
 public:
-
 	// ※変数は今回は全てpublicにしますが、本来はprivateで隠すべき※
 
 	// Direct3Dデバイス

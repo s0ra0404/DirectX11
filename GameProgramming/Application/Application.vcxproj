@@ -135,6 +135,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Source\DirectX\Direct3D.h" />
     <ClInclude Include="Source\DirectX\DirectX.h" />
+    <ClInclude Include="Source\DirectX\DebugSystem.h" />
     <ClInclude Include="Source\DirectX\Texture.h" />
     <ClInclude Include="Source\Game\GameSystem.h" />
     <ClInclude Include="targetver.h" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Source\DirectX\Direct3D.cpp" />
+    <ClCompile Include="Source\DirectX\DebugSystem.cpp" />
     <ClCompile Include="Source\DirectX\Texture.cpp" />
     <ClCompile Include="Source\Game\GameSystem.cpp" />
   </ItemGroup>

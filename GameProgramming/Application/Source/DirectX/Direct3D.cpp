@@ -1,5 +1,6 @@
 #include "framework.h"
 #include "Direct3D.h"
+#include "DebugSystem.h"
 
 bool Direct3D::Initialize(HWND hWnd, int width, int height)
 {
@@ -105,6 +106,13 @@ bool Direct3D::Initialize(HWND hWnd, int width, int height)
 	D3D11_VIEWPORT vp = { 0.0f, 0.0f, (float)width, (float)height, 0.0f, 1.0f };
 	m_deviceContext->RSSetViewports(1, &vp);
 
+	DEBUG.Log(L"テスト\n");
+	DEBUG.Log(L"テスト\n");
+	DEBUG.Log(L"テスト\n");
+	DEBUG.Log(L"テスト\n");
+	DEBUG.Log(L"テスト\n");
+	DEBUG.Log(L"テスト\n");
+
 	//=====================================================
 	// シェーダーの作成
 	//=====================================================
@@ -143,7 +151,6 @@ bool Direct3D::Initialize(HWND hWnd, int width, int height)
 	{
 		return false;
 	}
-
 	return true;
 }
 

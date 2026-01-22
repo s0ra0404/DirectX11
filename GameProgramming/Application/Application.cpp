@@ -5,6 +5,7 @@
 #include "Application.h"
 #include "Source/DirectX/Direct3D.h"
 #include "Source/Game/GameSystem.h"
+#include "Source/DirectX/DebugSystem.h"
 
 #define MAX_LOADSTRING 100
 
@@ -46,6 +47,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // ゲームシステム生成
     GameSystem::CreateInstance();
+    // デバック用ログ出力システムの生成
+    DebugSystem::CreateInstance();
+
     // ゲームシステム初期設定
     GAMESYS.Initialize();
 
@@ -78,6 +82,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // ゲームシステム削除
     GameSystem::CreateInstance();
+    DebugSystem::CreateInstance();
     // Direct3Dインスタンス削除
     Direct3D::DeleteInstance();
 
